@@ -1,5 +1,15 @@
 # livekit-agents
 
+## 0.8.13
+
+### Patch Changes
+
+- avoid returning tiny frames from TTS - [#747](https://github.com/livekit/agents/pull/747) ([@theomonnom](https://github.com/theomonnom))
+
+- voiceassistant: avoid tiny frames on playout - [#750](https://github.com/livekit/agents/pull/750) ([@theomonnom](https://github.com/theomonnom))
+
+- Allow setting LLM temperature with VoiceAssistant - [#741](https://github.com/livekit/agents/pull/741) ([@davidzhao](https://github.com/davidzhao))
+
 ## 0.8.12
 
 ### Patch Changes
