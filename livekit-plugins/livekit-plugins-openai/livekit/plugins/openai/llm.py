@@ -386,6 +386,8 @@ class LLM(llm.LLM):
         chat_ctx: llm.ChatContext,
         fnc_ctx: llm.FunctionContext | None = None,
         temperature: float | None = None,
+        presence_penalty: float | None = None,
+        frequency_penalty: float | None = None,
         n: int | None = 1,
         parallel_tool_calls: bool | None = None,
     ) -> "LLMStream":
@@ -403,13 +405,15 @@ class LLM(llm.LLM):
         user = self._opts.user or openai.NOT_GIVEN
         if temperature is None:
             temperature = self._opts.temperature
-
+            
         messages = _build_oai_context(chat_ctx, id(self))
         cmp = self._client.chat.completions.create(
             messages=messages,
             model=self._opts.model,
             n=n,
             temperature=temperature,
+            presence_penalty=presence_penalty,
+            frequency_penalty=frequency_penalty,
             stream=True,
             user=user,
             **opts,
